@@ -9,15 +9,26 @@ export const heroHome = defineType(
 
     fields: [
       F.string({
+        name: "label",
+      }),
+      F.string({
         name: "heading",
       }),
-      F.file({
-        name: "video",
-        accept: "video/*",
-      }),
+      F.image({ name: "image", hotspot: true }),
       F.array({
-        name: "content",
-        of: [{ type: "block" }],
+        name: "cards",
+        of: [
+          F.object({
+            name: "cardInfo",
+            fields: [
+              F.string({
+                name: "name",
+                validation: (Rule: any) => Rule.required(),
+              }),
+              F.image({ name: "image", hotspot: true }),
+            ],
+          }),
+        ],
       }),
     ],
 

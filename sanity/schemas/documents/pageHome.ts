@@ -21,6 +21,7 @@ export const pageHome = {
         title: "Page Components",
         of: [
           { type: "marquee" },
+          { type: "benefits" },
           { type: "cards" },
           { type: "mediaWithText" },
           { type: "slider" },

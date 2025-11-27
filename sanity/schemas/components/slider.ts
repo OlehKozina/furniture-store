@@ -24,6 +24,7 @@ export const slider = defineType(
                   name: "image",
                   hotspot: true,
                 }),
+                F.rating({ name: "rating", title: "Rating (1–5)" }),
                 F.array({
                   name: "content",
                   of: [{ type: "block" }],

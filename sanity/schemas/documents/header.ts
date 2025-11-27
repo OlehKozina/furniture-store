@@ -14,28 +14,15 @@ export const header = {
       of: [{ type: "link" }],
       title: "Navigation Links",
     }),
-    F.reference({
-      name: "privacyPolicy",
-      to: [{ type: "privacyPolicy" }],
-    }),
   ],
 
   preview: {
     select: {
       navigation: "navigation",
-      privacyPolicy: "privacyPolicy",
     },
-    prepare({
-      navigation,
-      privacyPolicy,
-    }: {
-      navigation?: any[];
-      privacyPolicy?: PortableTextBlock;
-    }) {
-      const navCount = Array.isArray(navigation) ? navigation.length : 0;
+    prepare() {
       return {
         title: "Header",
-        subtitle: `Links: ${navCount}${privacyPolicy ? ", includes Privacy Policy" : ""}`,
         media: icon,
       };
     },

@@ -6,14 +6,13 @@ import { visionTool } from "@sanity/vision";
 export default defineConfig({
   projectId: process.env.SANITY_STUDIO_API_PROJECT_ID!,
   dataset: process.env.SANITY_STUDIO_API_DATASET!,
-  title: "DogClub",
+  title: "FurnitureStore",
   apiVersion: process.env.SANITY_STUDIO_API_VERSION!,
   basePath: "/admin",
   plugins: [
     deskTool({
       structure: (S) => {
-        const singletons = ["header", "footer", "privacyPolicy"];
-
+        const singletons = ["header", "footer", "pageHome"];
         return S.list()
           .title("Content")
           .items([
@@ -30,13 +29,11 @@ export default defineConfig({
               .child(S.document().schemaType("footer").documentId("footer")),
 
             S.listItem()
-              .title("Privacy Policy")
-              .id("privacyPolicy")
-              .schemaType("privacyPolicy")
+              .title("Page Home")
+              .id("pageHome")
+              .schemaType("pageHome")
               .child(
-                S.document()
-                  .schemaType("privacyPolicy")
-                  .documentId("privacyPolicy")
+                S.document().schemaType("pageHome").documentId("pageHome")
               ),
             ...S.documentTypeListItems().filter(
               (item) => !singletons.includes(item.getId() ?? "")

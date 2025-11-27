@@ -9,37 +9,32 @@ export const footer = {
   fields: [
     F.array({
       name: "navigation",
-      of: [{ type: "link" }],
+      title: "Navigation Columns",
+      of: [
+        {
+          type: "object",
+          name: "navColumn",
+          fields: [
+            F.string({ name: "title", title: "Column Title" }),
+            F.array({
+              name: "links",
+              title: "Links",
+              of: [{ type: "link" }],
+            }),
+          ],
+          preview: {
+            select: { title: "title" },
+            prepare({ title }: { title?: any }) {
+              return {
+                title: title || "Navigation Column",
+              };
+            },
+          },
+        },
+      ],
     }),
     F.string({ name: "phone" }),
     F.string({ name: "email" }),
-    F.reference({
-      name: "privacyPolicy",
-      to: [{ type: "privacyPolicy" }],
-    }),
-    defineField(
-      F.object({
-        name: "footerImages",
-        fields: [
-          defineField({
-            name: "leftImage",
-            type: "image",
-            options: { hotspot: true },
-          }),
-          defineField({
-            name: "rightImage",
-            type: "image",
-            options: { hotspot: true },
-          }),
-        ],
-      })
-    ),
-    defineField(
-      F.object({
-        name: "address",
-        fields: [F.string({ name: "name" }), F.string({ name: "link" })],
-      })
-    ),
     F.array({
       name: "socialLinks",
       of: [{ type: "string" }],

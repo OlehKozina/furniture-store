@@ -5,6 +5,17 @@ export const F = {
     defineField({ type: "string", ...opts }),
   text: (opts: { name: string; title?: string; rows?: number }) =>
     defineField({ type: "text", ...opts }),
+  number: (opts: { name: string; title?: string }) =>
+    defineField({
+      type: "number",
+      ...opts,
+    }),
+  rating: (opts: { name: string; title?: string }) =>
+    defineField({
+      type: "number",
+      validation: (Rule) => Rule.min(1).max(5).integer(),
+      ...opts,
+    }),
   block: (opts: { name: string; title?: string }) =>
     defineField({ type: "array", of: [{ type: "block" }], ...opts }),
   object: (opts: {

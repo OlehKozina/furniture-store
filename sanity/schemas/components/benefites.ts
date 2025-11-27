@@ -1,27 +1,26 @@
 import { defineType } from "sanity";
 import { F } from "../tool";
-import { UserIcon as icon } from "@sanity/icons";
+import { ChartUpwardIcon as icon } from "@sanity/icons";
 
-export const cards = defineType(
+export const benefits = defineType(
   F.object({
-    name: "cards",
+    name: "benefits",
     icon,
 
     fields: [
       F.text({ name: "heading" }),
       F.array({
-        name: "cards",
+        name: "benefits",
         of: [
           F.object({
-            name: "cardInfo",
+            name: "benefit",
             fields: [
               F.string({
                 name: "name",
+                validation: (Rule: any) => Rule.required(),
               }),
               F.image({ name: "image", hotspot: true }),
-              F.rating({ name: "rating", title: "Rating (1–5)" }),
-              F.number({ name: "price" }),
-              F.number({ name: "oldPrice" }),
+              F.block({ name: "content" }),
             ],
           }),
         ],
@@ -36,23 +35,23 @@ export const cards = defineType(
     preview: {
       select: {
         heading: "heading",
-        cardName: "cards.0.name",
-        image: "cards.0.image",
+        benefitName: "benefits.0.name",
+        image: "benefits.0.image",
       },
       prepare({
         heading,
-        cardName,
+        benefitName,
         image,
       }: {
         heading?: string;
-        cardName?: string;
+        benefitName?: string;
         image?: any;
       }) {
         return {
-          title: heading || cardName || "Cards section",
-          subtitle: cardName
-            ? `Includes ${cardName} and others`
-            : "No cards yet",
+          title: heading || benefitName || "Benefits section",
+          subtitle: benefitName
+            ? `Includes ${benefitName} and others`
+            : "No benefits yet",
           media: image,
         };
       },

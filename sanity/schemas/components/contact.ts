@@ -11,12 +11,26 @@ export const contact = defineType(
       F.string({
         name: "heading",
       }),
-      F.reference({
-        name: "form",
-        to: [{ type: "form" }],
+      F.array({
+        name: "content",
+        of: [{ type: "block" }],
       }),
-      F.string({
-        name: "direction",
+      F.array({
+        name: "addresses",
+        of: [
+          F.object({
+            name: "item",
+            fields: [
+              F.string({
+                name: "city",
+              }),
+              F.string({
+                name: "address",
+              }),
+              F.string({ name: "phone" }),
+            ],
+          }),
+        ],
       }),
       F.reference({
         name: "navLink",
