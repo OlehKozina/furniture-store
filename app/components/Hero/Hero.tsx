@@ -1,21 +1,20 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { HeroType } from "@/types/Hero";
-import { ModalForm } from "../Form";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { getHeadingParts, containerVariants, charVariants } from "./utils";
 
 const Hero = ({ hero }: { hero: HeroType }) => {
-  const [isFormVisible, setIsFormVisible] = useState(false);
-  const toggleForm = () => setIsFormVisible((prev) => !prev);
   if (!hero) return null;
-  const { heading, videoUrl, privacyPolicy, form } = hero;
+  const { heading, image, label, cards } = hero;
   const { firstWord, fullText } = getHeadingParts(heading);
   const { scrollY } = useScroll();
   const yBg = useTransform(scrollY, [0, 500], [0, 150]);
+  console.log("cards", cards);
   return (
     <section
-      className="relative flex items-center overflow-hidden h-screen"
+      className="relative flex flex-col items-center overflow-hidden min-h-screen"
       id="hero"
     >
       <motion.div
@@ -24,17 +23,18 @@ const Hero = ({ hero }: { hero: HeroType }) => {
         }}
         className="absolute inset-0 bg-cover bg-top"
       >
-        <video
-          src={videoUrl}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-        />
+        {image && (
+          <Image
+            src={image}
+            alt="hero-image"
+            fill
+            className="w-full h-full object-cover"
+          />
+        )}
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-black/0" />
       <div className="container flex flex-col gap-5">
+        {label && <h3 className="text-center">{label}</h3>}
         {heading && (
           <motion.h1
             initial="initial"
@@ -56,19 +56,26 @@ const Hero = ({ hero }: { hero: HeroType }) => {
             })}
           </motion.h1>
         )}
-        <button
-          className="lg:hidden mx-auto block px-4 py-2 bg-brand-default transition-all text-brand-light border border-brand-default rounded-lg cursor-pointer hover:bg-opacity-60 font-semibold md:px-8 md:py-4 z-1 relative"
-          type="button"
-          onClick={toggleForm}
-        >
-          Request a call
-        </button>
-        <ModalForm
-          onClose={toggleForm}
-          isVisible={isFormVisible}
-          form={form}
-          privacyPolicy={privacyPolicy}
-        />
+      </div>
+      <div className="flex relative gap-4 flex-wrap container mx-auto justify-center">
+        {!!cards?.length &&
+          cards.map((card) => (
+            <div
+              key={card.name}
+              className="max-w-[21rem] w-full bg-brand-light rounded-lg p-4 flex flex-col justify-between"
+            >
+              {card.name}
+              {card.image && (
+                <Image
+                  width={150}
+                  className="mx-auto"
+                  height={200}
+                  src={card.image}
+                  alt="furniture-item"
+                />
+              )}
+            </div>
+          ))}
       </div>
     </section>
   );

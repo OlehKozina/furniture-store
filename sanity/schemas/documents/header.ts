@@ -1,6 +1,5 @@
 import { FaBars as icon } from "react-icons/fa";
 import { F } from "../tool";
-import { PortableTextBlock } from "next-sanity";
 
 export const header = {
   name: "header",

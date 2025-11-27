@@ -22,7 +22,7 @@ const FooterNavigation = ({
 
   const contactLinks = buildContactLinks(phone, email, address);
   const socialLinks = buildSocialLinks(_socialLinks);
-
+  console.log("links", socialLinks);
   return (
     <div className="flex z-9 mt-4 flex-grow justify-evenly flex-col md:flex-row text-center md:mt-0">
       <Navigation navigation={navigation} />

@@ -6,7 +6,6 @@ import Heading from "../Heading";
 export default function Cards({
   heading,
   cards,
-  _id,
 }: {
   cards?: CardsType;
   heading?: string;

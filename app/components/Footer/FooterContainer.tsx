@@ -15,10 +15,10 @@ const FooterContainer = ({
         className="mt-4 flex justify-center md:inline-block md:justify-start md:mt-0 z-[5]"
       >
         <Image
-          src="/logo.svg"
-          alt="bakery_logo"
+          src="/logo.png"
+          alt="store_logo"
           width={100}
-          height={24}
+          height={100}
           className="relative z-5"
         />
       </a>

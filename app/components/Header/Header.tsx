@@ -1,20 +1,10 @@
 "use client";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import HeaderNav from "./HeaderNav";
 import React, { useState, useEffect } from "react";
-import { NavigationType, FormType } from "@/types";
-import MobileMenu from "../MobileMenu/MobileMenu";
-import { ModalForm } from "../Form";
+import { NavigationType } from "@/types";
 import clsx from "clsx";
 
 const Header = ({ header }: { header: NavigationType }) => {
-  const [isFormVisible, setIsFormVisible] = useState(false);
-  const toggleForm = () => setIsFormVisible((prev) => !prev);
-
-  const [isMobMenuVisible, setIsMobMenuVisible] = useState(false);
-  const toggleMobMenu = () => setIsMobMenuVisible((prev) => !prev);
-
   const [hidden, setHidden] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
@@ -58,52 +48,13 @@ const Header = ({ header }: { header: NavigationType }) => {
   return (
     <header
       className={clsx(
-        "px-2 top-0 left-0 w-full py-4 z-10 sticky transition-all",
+        "px-2 top-0 left-0 w-full py-4 z-10 sticky transition-all bg-white",
         hidden && "-translate-y-full"
       )}
     >
-      <div
-        className={clsx(
-          "container transition-all rounded-3xl p-4",
-          isMobMenuVisible && "rounded-br-none"
-        )}
-        style={{
-          background: "linear-gradient(to right, #A1C4FD, #C2E9FB)",
-        }}
-      >
+      <div className={clsx("container transition-all rounded-3xl p-4")}>
         <div className="flex items-center gap-10 relative">
           <HeaderNav navigation={navigation} activeSection={activeSection} />
-          <button
-            className="hidden transition-all lg:block bg-brand-default text-brand-light border border-brand-default rounded-lg cursor-pointer text-lg lg:text-xl font-extrabold hover:bg-opacity-80 px-6 py-3"
-            type="button"
-            onClick={toggleForm}
-          >
-            Request a call
-          </button>
-          <ModalForm
-            onClose={toggleForm}
-            isVisible={isFormVisible}
-            privacyPolicy={privacyPolicy}
-            form={form}
-          />
-          {!isMobMenuVisible && (
-            <button
-              className=" bg-transparent border-none text-brand-light md:hidden menu-btn-open"
-              type="button"
-            >
-              <FontAwesomeIcon
-                icon={faBars}
-                className="hover:text-brand-default w-6"
-                onClick={toggleMobMenu}
-              />
-            </button>
-          )}
-          <MobileMenu
-            onClose={toggleMobMenu}
-            isVisible={isMobMenuVisible}
-            navigation={navigation}
-            className="absolute -right-6 -top-3.5"
-          />
         </div>
       </div>
     </header>

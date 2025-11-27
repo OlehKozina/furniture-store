@@ -1,7 +1,7 @@
 import {
-  faInstagram,
+  faGithub,
   faFacebook,
-  faXTwitter,
+  faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 
 export const buildContactLinks = (
@@ -18,16 +18,15 @@ export const buildContactLinks = (
   ].filter(Boolean);
 
 const platforms = {
-  instagram: { icon: faInstagram, label: "Instagram" },
+  github: { icon: faGithub, label: "Github" },
   facebook: { icon: faFacebook, label: "Facebook" },
-  twitter: { icon: faXTwitter, label: "Twitter" },
+  linkedin: { icon: faLinkedin, label: "LinkedIn" },
 };
 
 export const buildSocialLinks = (urls?: string[]) =>
   urls?.map((url) => {
-    if (url.includes("instagram")) return { href: url, ...platforms.instagram };
+    if (url.includes("linkedin")) return { href: url, ...platforms.linkedin };
     if (url.includes("facebook")) return { href: url, ...platforms.facebook };
-    if (url.includes("x") || url.includes("twitter"))
-      return { href: url, ...platforms.twitter };
+    if (url.includes("github")) return { href: url, ...platforms.github };
     return { href: url, icon: null, label: "Unknown" };
   }) ?? [];

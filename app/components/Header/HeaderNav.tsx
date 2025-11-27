@@ -14,7 +14,7 @@ const HeaderNav = ({
   return (
     <nav className="flex items-center flex-grow gap-10">
       <a href="#" className="z-cover relative">
-        <Image src="/logo.svg" alt="bakery_logo" width={100} height={24} />
+        <Image src="/logo.png" alt="bakery_logo" width={50} height={50} />
       </a>
       <Navigation
         navigation={navigation}

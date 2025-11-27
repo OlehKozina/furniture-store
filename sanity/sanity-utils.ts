@@ -24,7 +24,9 @@ export function getPageHome() {
     `*[_type == "pageHome"]{
     hero[0]{
       heading,
-      "videoUrl": video.asset->url,
+      label,
+      cards[] {name, "image": image.asset->url},
+      "image": image.asset->url,
       "privacyPolicy": *[_type == "privacyPolicy"][0].content,
       "form": *[_type == "form"][0]${formQuery},
     },
@@ -35,9 +37,7 @@ export function getPageHome() {
 
 export function getHeader() {
   return fetchNoCache(`*[_type == "header"][0]{
-    "form": *[_type == "form"][0]${formQuery},
-    navigation[]{ title, sectionId },
-    "privacyPolicy": *[_type == "privacyPolicy"][0].content,
+    navigation[]{ title, "slug": slug.current },
   }`);
 }
 
