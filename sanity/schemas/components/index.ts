@@ -6,4 +6,4 @@ export * from "./contact";
 export * from "./mediaGridWithText";
 export * from "./sliderVertical";
 export * from "./gallery";
-export * from "./benefites";
+export * from "./benefits";

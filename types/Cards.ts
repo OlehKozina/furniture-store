@@ -5,4 +5,5 @@ export type CardsType = {
   name?: string;
   image?: string;
   content?: PortableTextBlock[];
+  price?: number;
 }[];

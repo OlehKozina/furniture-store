@@ -1,42 +1,49 @@
 "use client";
 import React from "react";
-import Form from "../Form";
-import { FormType } from "@/types";
-import { PortableTextBlock } from "next-sanity";
+import Heading from "../Heading";
+import { PortableText, PortableTextBlock } from "next-sanity";
+import Image from "next/image";
 
 export interface ContactProps {
-  _id?: string;
   heading?: string;
-  form?: FormType;
-  direction?: string;
-  privacyPolicy?: PortableTextBlock;
+  content?: PortableTextBlock;
+  addresses?: {
+    city?: string;
+    address?: string;
+    phone?: string;
+  }[];
 }
 
-function Contact({
-  heading,
-  form,
-  direction,
-  privacyPolicy,
-  _id,
-}: ContactProps) {
+function Contact({ heading, content, addresses, ...props }: ContactProps) {
+  console.log("props", props);
   return (
     <section
-      className="py-5 md:py-12 relative overflow-hidden max-md:scroll-mt-16"
+      className="py-5 md:py-12 relative overflow-hidden max-md:scroll-mt-16 bg-black"
       id="contact"
     >
-      <div className="container">
+      <div className="container text-white text-center">
+        <Heading
+          className="font-extrabold leading-tight text-3xl sm:text-4xl mb-6 text-center"
+          heading={heading}
+        />
+        {content && <PortableText value={content} />}
         <div className="flex flex-col items-center gap-6 pb-0 md:flex-row md:gap-10 md:pb-24">
-          <Form
-            heading={heading}
-            form={form}
-            className="!p-8 bg-opacity-50"
-            privacyPolicy={privacyPolicy}
+          <Image
+            alt="canada-map"
+            src="/canada-map.png"
+            width={500}
+            height={500}
           />
-          <iframe
-            className="flex-shrink-0 max-md:h-[15rem] md:aspect-square -mx-6 rounded-3xl w-full border-none md:mx-auto md:max-w-[30rem] lg:max-w-[38rem]"
-            src={direction}
-            loading="lazy"
-          />
+          {!!addresses?.length &&
+            addresses?.map((item) => (
+              <div className="flex gap-2" key={item.city}>
+                <div className="flex flex-col gap-2">
+                  {item.city && <h4>{item.city}</h4>}
+                  {item.address && <p>{item.address}</p>}
+                  {item.phone && <p>{item.phone}</p>}
+                </div>
+              </div>
+            ))}
         </div>
       </div>
     </section>

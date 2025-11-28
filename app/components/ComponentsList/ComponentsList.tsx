@@ -8,7 +8,7 @@ const componentMap: Record<string, React.ComponentType<any>> = {
   slider: dynamic(() => import("../Slider")),
   mediaGridWithText: dynamic(() => import("../MediaGridWithText")),
   contact: dynamic(() => import("../Contact")),
-  // sliderVertical: dynamic(() => import("../VerticalSlider")),
+  benefits: dynamic(() => import("../Benefits")),
   gallery: dynamic(() => import("../Gallery")),
 };
 

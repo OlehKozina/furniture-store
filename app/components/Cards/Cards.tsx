@@ -28,8 +28,8 @@ export default function Cards({
         <div className="list-none justify-center flex gap-8 flex-wrap sm:justify-center">
           {!!cards?.length &&
             cards.map((card) => {
-              const { _key, name, content, image } = card;
-              return <Card key={_key} {...{ name, content, image }} />;
+              const { _key, ...props } = card;
+              return <Card key={_key} {...props} />;
             })}
         </div>
       </div>

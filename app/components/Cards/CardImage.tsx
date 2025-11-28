@@ -27,7 +27,7 @@ const CardImage = ({ image, name }: { image?: string; name?: string }) => {
         alt={name || "Baker"}
         width={240}
         height={388}
-        className="list-none w-[9rem] rounded-md rounded-bl-[12.5rem] shadow-bakerCard md:w-[15rem]"
+        className="list-none w-[9rem] md:w-[15rem] bg-brand-dark"
       />
     </motion.div>
   );

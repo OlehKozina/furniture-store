@@ -3,6 +3,8 @@ const cardQuery = `{
     name,
     "image": image.asset->url,
     content,
+    price,
+    oldPrice
   }
 `;
 
@@ -46,6 +48,17 @@ const sliderVerticalQuery = `
     }
 `;
 
+const benefitsQuery = `
+    _type == "benefits" =>{
+    heading,
+    benefits[]{
+    name, 
+    "image": image.asset->url,
+    content
+    }
+    }
+`;
+
 const marqueeQuery = `
     _type == "marquee" =>{
       logos[]{
@@ -66,15 +79,9 @@ const mediaGridWithTextQuery = `
 `;
 const contactQuery = `
     _type == "contact" =>{
-      "_id": navLink->_id,
       heading,
-      direction,
-      form->{
-        name, 
-        fields,
-        buttonLabel
-      },
-      "privacyPolicy": *[_type == "privacyPolicy"][0].content,
+      content,
+      addresses
     }
 `;
 
@@ -87,6 +94,7 @@ const queries = [
   contactQuery,
   marqueeQuery,
   galleryQuery,
+  benefitsQuery,
 ].join(",");
 
 export const componentsQuery = `
