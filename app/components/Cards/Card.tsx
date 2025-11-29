@@ -21,7 +21,9 @@ const Card = ({ image, content, name, price, oldPrice }: CardProps) => {
         {(name || content) && <CardContent {...{ name, content }} />}
         {price && (
           <div className="flex items-center gap-3">
-            <p className="text-brand-orange text-xl font-semibold">${price}</p>
+            <p className="text-brand-charcoal text-xl font-semibold">
+              ${price}
+            </p>
             {oldPrice && (
               <p className="text-gray-500 text-lg line-through opacity-60">
                 ${oldPrice}
@@ -34,7 +36,7 @@ const Card = ({ image, content, name, price, oldPrice }: CardProps) => {
         onClick={() => console.log("Add to cart:", name)}
         className="
           absolute inset-0 m-auto h-12 w-40
-          bg-brand-orange text-white font-semibold rounded-xl
+          bg-brand-charcoal text-white font-semibold rounded-xl
           opacity-0 group-hover:opacity-100 
           transition-opacity duration-300 
           pointer-events-none group-hover:pointer-events-auto

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Rowdies } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { getHeader, getFooter } from "@/sanity/sanity-utils";
 
 import "./globals.css";
 
-const rowdies = Rowdies({
+const rowdies = Montserrat({
   subsets: ["latin"],
   weight: ["300", "400", "700"],
 });

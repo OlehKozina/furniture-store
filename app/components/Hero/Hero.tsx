@@ -34,13 +34,13 @@ const Hero = ({ hero }: { hero: HeroType }) => {
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-black/0" />
       <div className="container flex flex-col gap-5">
-        {label && <h3 className="text-center">{label}</h3>}
+        {label && <h3 className="text-center text-xl">{label}</h3>}
         {heading && (
           <motion.h1
             initial="initial"
             animate="animate"
             variants={containerVariants}
-            className="relative font-extrabold text-center text-7xl mb-24 leading-tight text-brand-light md:top-0 md:mb-12 xs:text-8xl lg:text-9xl lg:line-height-[1.5] lg:mb-0"
+            className="relative font-extrabold text-center text-7xl mb-24 leading-tight text-white md:top-0 md:mb-12 lg:line-height-[1.5] lg:mb-0"
           >
             {fullText.map((char, index) => {
               const isFirstWordChar = index < firstWord.length;
@@ -62,7 +62,7 @@ const Hero = ({ hero }: { hero: HeroType }) => {
           cards.map((card) => (
             <div
               key={card.name}
-              className="max-w-[21rem] w-full bg-brand-light rounded-lg p-4 flex flex-col justify-between"
+              className="max-w-[21rem] w-full bg-brand-tangerine rounded-lg p-4 flex flex-col justify-between"
             >
               {card.name}
               {card.image && (

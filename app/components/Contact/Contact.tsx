@@ -27,23 +27,32 @@ function Contact({ heading, content, addresses, ...props }: ContactProps) {
           heading={heading}
         />
         {content && <PortableText value={content} />}
-        <div className="flex flex-col items-center gap-6 pb-0 md:flex-row md:gap-10 md:pb-24">
+        <div className="flex flex-col items-center gap-6 md:flex-row md:gap-10">
           <Image
             alt="canada-map"
             src="/canada-map.png"
             width={500}
             height={500}
           />
-          {!!addresses?.length &&
-            addresses?.map((item) => (
-              <div className="flex gap-2" key={item.city}>
-                <div className="flex flex-col gap-2">
-                  {item.city && <h4>{item.city}</h4>}
-                  {item.address && <p>{item.address}</p>}
-                  {item.phone && <p>{item.phone}</p>}
+          <div className="flex flex-wrap justify-center gap-20">
+            {!!addresses?.length &&
+              addresses?.map((item) => (
+                <div className="flex gap-2 max-w-[14rem]" key={item.city}>
+                  <div className="flex flex-col gap-2">
+                    {item.city && <h4>{item.city}</h4>}
+                    {item.address && <p>{item.address}</p>}
+                    {item.phone && (
+                      <a
+                        href={`tel:${item.phone}`}
+                        className="inline-block px-4 py-2 border border-white rounded-xl text-white font-medium hover:bg-white hover:text-black transition-colors duration-300"
+                      >
+                        {item.phone}
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+          </div>
         </div>
       </div>
     </section>

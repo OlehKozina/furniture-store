@@ -24,7 +24,7 @@ function MediaWithText({
       className="my-10 md:my-20 text-sm md:text-base relative overflow-hidden scroll-mt-10 max-md:scroll-mt-16 px-6"
       id="trust"
     >
-      <div className="container relative bg-brand-dark rounded-3xl bg-opacity-80 py-10">
+      <div className="container relative bg-brand-teal rounded-3xl bg-opacity-80 py-10">
         <div className="flex flex-col lg:flex-row items-start max-lg:items-center justify-center gap-10 lg:gap-0 lg:space-x-10 text-base lg:text-xl">
           <div className="max-w-[35rem] lg:max-w-[40rem]">
             <Heading

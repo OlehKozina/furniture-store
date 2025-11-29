@@ -1,9 +1,8 @@
 export const colors = {
   black: "#000",
-  "brand-orange": "#FF8C00",
-  "brand-dark": "#E4EfE9",
-  "brand-default": "#FF8C00",
-  "brand-light": "#faf4ea",
-  "muted-green": "#cfcfbc",
+  "brand-charcoal": "#3d4a55",
+  "brand-teal": "#E4EfE9",
+  "brand-default": "#bec6c3",
+  "brand-tangerine": "#e9bc8b",
   white: "#ffffff",
 };

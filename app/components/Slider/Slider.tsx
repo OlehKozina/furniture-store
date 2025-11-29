@@ -53,12 +53,15 @@ export default function Slider({ heading, slides, _id }: SliderProps) {
 
   return (
     <section
-      className="py-5 md:py-12 relative overflow-hidden max-md:scroll-mt-16 scroll-mt-10 px-6"
+      className="py-5 md:py-12 relative overflow-hidden max-md:scroll-mt-16 bg-brand-charcoal"
       id="customers"
     >
-      <div className="container mx-auto px-4 bg-brand-dark bg-opacity-80 rounded-3xl py-10">
-        <Heading heading={heading} className="mb-6 text-center md:mb-10" />
-        <div className="relative max-w-[21rem] sm:max-w-[42rem] md:max-w-[69rem] mx-auto">
+      <div className="container mx-auto px-4 bg-opacity-80 rounded-3xl py-10">
+        <Heading
+          heading={heading}
+          className="mb-6 text-center md:mb-10 text-white"
+        />
+        <div className="relative max-w-[21rem] sm:max-w-[42rem] md:max-w-[80rem] mx-auto">
           <div
             className={clsx(
               "overflow-hidden",
@@ -70,10 +73,7 @@ export default function Slider({ heading, slides, _id }: SliderProps) {
               {slides.map((slide) => {
                 const { content, image, name } = slide;
                 return (
-                  <div
-                    key={name}
-                    className="flex-[0_0_100%] sm:flex-[0_0_50%] md:flex-[0_0_33.3333%] px-2"
-                  >
+                  <div key={name} className="flex-[0_0_100%] px-2">
                     <Slide {...{ content, image, name }} />
                   </div>
                 );
@@ -82,14 +82,14 @@ export default function Slider({ heading, slides, _id }: SliderProps) {
           </div>
           <ArrowButton direction="left" onClick={scrollPrev} />
           <ArrowButton direction="right" onClick={scrollNext} />
-          <div className="flex mx-auto w-fit justify-center gap-2 mt-3 p-4 rounded-full bg-brand-dark">
+          <div className="flex mx-auto w-fit justify-center gap-2 mt-3 p-4 rounded-full bg-brand-teal">
             {scrollSnaps.map((_, index) => (
               <button
                 key={index}
                 className={`w-3 h-3 hover:scale-125 transition-all rounded-full ${
                   index === selectedIndex
                     ? "bg-brand-default"
-                    : "bg-brand-light"
+                    : "bg-brand-tangerine"
                 }`}
                 onClick={() => emblaApi?.scrollTo(index)}
                 aria-label={`Go to slide ${index + 1}`}

@@ -23,7 +23,7 @@ const ModalForm: React.FC<FormProps> = ({
     <AnimatePresence initial={false}>
       {isVisible && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-brand-dark bg-opacity-50 p-5"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-brand-teal bg-opacity-50 p-5"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

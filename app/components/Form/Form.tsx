@@ -61,7 +61,7 @@ const Form = ({
   return (
     <div
       className={clsx(
-        "max-w-[38rem] rounded-3xl p-12 mx-auto bg-brand-dark",
+        "max-w-[38rem] rounded-3xl p-12 mx-auto bg-brand-teal",
         className
       )}
     >
@@ -72,7 +72,7 @@ const Form = ({
       <p className="text-brand-default text-center mb-3">{name}</p>
       <form
         data-form="contact-form"
-        className="max-w-[30rem] flex flex-col items-center mx-auto text-brand-dark"
+        className="max-w-[30rem] flex flex-col items-center mx-auto text-brand-teal"
         onSubmit={handleSubmit}
       >
         {!!fields?.length &&
@@ -80,7 +80,7 @@ const Form = ({
             return <FormField field={field} key={field.label} />;
           })}
         <button
-          className="mx-auto transition-all mb-6 block px-5 py-2 bg-brand-default hover:bg-opacity-80 text-brand-light border border-brand-default rounded-lg cursor-pointer text-xl font-extrabold md:px-8 md:py-4"
+          className="mx-auto transition-all mb-6 block px-5 py-2 bg-brand-default hover:bg-opacity-80 text-brand-tangerine border border-brand-default rounded-lg cursor-pointer text-xl font-extrabold md:px-8 md:py-4"
           type="submit"
         >
           {buttonLabel}

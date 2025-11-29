@@ -43,7 +43,7 @@ const Heading = ({
             <motion.span
               key={wordIndex}
               variants={charVariants}
-              className="text-brand-default inline-block mx-1"
+              className="text-brand-charcoal inline-block mx-1"
             >
               <CountUp
                 start={1}
@@ -62,7 +62,7 @@ const Heading = ({
             key={wordIndex}
             className={clsx(
               "inline-block mx-1",
-              isLastTwoWords && "text-brand-default"
+              isLastTwoWords && "text-brand-charcoal"
             )}
           >
             {word.split("").map((char, charIndex) => {
@@ -71,7 +71,7 @@ const Heading = ({
                 <motion.span
                   key={`${wordIndex}-${charIndex}`}
                   variants={charVariants}
-                  className={isLastTwoWordsChar ? "text-brand-default" : ""}
+                  className={isLastTwoWordsChar ? "text-brand-charcoal" : ""}
                 >
                   {char}
                 </motion.span>

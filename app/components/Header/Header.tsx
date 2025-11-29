@@ -48,7 +48,7 @@ const Header = ({ header }: { header: NavigationType }) => {
   return (
     <header
       className={clsx(
-        "px-2 top-0 left-0 w-full py-4 z-10 sticky transition-all bg-white",
+        "px-2 top-0 left-0 w-full z-10 sticky transition-all bg-white",
         hidden && "-translate-y-full"
       )}
     >

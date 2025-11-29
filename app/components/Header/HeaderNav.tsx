@@ -21,7 +21,7 @@ const HeaderNav = ({
         activeSection={activeSection}
         isHeader
         classNames={{
-          root: "hidden md:flex text-brand-orange list-none gap-16 flex-grow justify-center text-lg lg:text-xl font-extrabold",
+          root: "hidden md:flex text-brand-charcoal list-none gap-16 flex-grow justify-center text-lg lg:text-xl font-extrabold",
         }}
       />
     </nav>
