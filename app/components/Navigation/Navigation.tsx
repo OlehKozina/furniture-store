@@ -6,6 +6,7 @@ import { LineSvg } from "../Icons";
 interface NavigationProps {
   navigation?: {
     title?: string;
+    slug?: string;
   }[];
   classNames?: {
     root?: string;
@@ -84,7 +85,7 @@ const Navigation = ({
                 !isHeader && "hover:text-brand-default transition-all",
                 classNames?.link
               )}
-              href={`#${generateId(link?.title)}`}
+              href={`#${generateId(link?.slug)}`}
               onClick={onClose}
             >
               {link.title}

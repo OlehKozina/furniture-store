@@ -10,6 +10,9 @@ export const slider = defineType(
       F.string({
         name: "heading",
       }),
+      F.string({
+        name: "id",
+      }),
       F.array({
         name: "slides",
         of: [
@@ -33,11 +36,6 @@ export const slider = defineType(
             })
           ),
         ],
-      }),
-      F.reference({
-        name: "navLink",
-        to: [{ type: "navigation" }],
-        title: "Navigation Link",
       }),
     ],
 

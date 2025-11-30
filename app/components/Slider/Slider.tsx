@@ -8,7 +8,7 @@ import { PortableTextBlock } from "next-sanity";
 import Slide from "./Slide";
 
 interface SliderProps {
-  _id: string;
+  id: string;
   slides: {
     image: string;
     content: PortableTextBlock[];
@@ -18,7 +18,7 @@ interface SliderProps {
   heading?: string;
 }
 
-export default function Slider({ heading, slides, _id }: SliderProps) {
+export default function Slider({ heading, slides, id }: SliderProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
 
@@ -54,7 +54,7 @@ export default function Slider({ heading, slides, _id }: SliderProps) {
   return (
     <section
       className="py-5 md:py-12 relative overflow-hidden max-md:scroll-mt-16 bg-brand-charcoal"
-      id="customers"
+      id={id}
     >
       <div className="container mx-auto px-4 bg-opacity-80 rounded-3xl py-10">
         <Heading

@@ -25,7 +25,7 @@ const ArrowButton = ({
     >
       <FontAwesomeIcon
         icon={direction === "left" ? faChevronLeft : faChevronRight}
-        className="text-base text-white h-32 w-32"
+        className="text-base text-white h-12 w-12"
       />
     </button>
   );

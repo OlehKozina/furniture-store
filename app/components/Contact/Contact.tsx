@@ -6,6 +6,7 @@ import Image from "next/image";
 
 export interface ContactProps {
   heading?: string;
+  id?: string;
   content?: PortableTextBlock;
   addresses?: {
     city?: string;
@@ -14,12 +15,11 @@ export interface ContactProps {
   }[];
 }
 
-function Contact({ heading, content, addresses, ...props }: ContactProps) {
-  console.log("props", props);
+function Contact({ heading, content, addresses, id }: ContactProps) {
   return (
     <section
       className="py-5 md:py-12 relative overflow-hidden max-md:scroll-mt-16 bg-black"
-      id="contact"
+      id={id}
     >
       <div className="container text-white text-center">
         <Heading

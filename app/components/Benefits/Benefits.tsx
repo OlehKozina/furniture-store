@@ -7,8 +7,10 @@ import { PortableText } from "next-sanity";
 const Benefits = ({
   heading,
   benefits,
+  id,
 }: {
   heading?: string;
+  id?: string;
   benefits?: {
     name?: string;
     image?: string;
@@ -16,7 +18,7 @@ const Benefits = ({
   }[];
 }) => {
   return (
-    <section className="px-2 sm:container relative !py-20 mx-auto">
+    <section className="px-2 sm:container relative !py-20 mx-auto" id={id}>
       <Heading
         className="font-extrabold leading-tight text-3xl sm:text-4xl mb-6 text-center md:mb-10"
         heading={heading}

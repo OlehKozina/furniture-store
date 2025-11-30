@@ -11,6 +11,9 @@ export const contact = defineType(
       F.string({
         name: "heading",
       }),
+      F.string({
+        name: "id",
+      }),
       F.array({
         name: "content",
         of: [{ type: "block" }],
@@ -31,11 +34,6 @@ export const contact = defineType(
             ],
           }),
         ],
-      }),
-      F.reference({
-        name: "navLink",
-        to: [{ type: "navigation" }],
-        title: "Navigation Link",
       }),
     ],
     preview: {

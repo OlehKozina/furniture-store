@@ -43,7 +43,7 @@ const Header = ({ header }: { header: NavigationType }) => {
   }, []);
 
   if (!header) return null;
-  const { navigation, privacyPolicy, form } = header;
+  const { navigation } = header;
 
   return (
     <header

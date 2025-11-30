@@ -9,6 +9,9 @@ export const benefits = defineType(
 
     fields: [
       F.text({ name: "heading" }),
+      F.string({
+        name: "id",
+      }),
       F.array({
         name: "benefits",
         of: [
@@ -24,11 +27,6 @@ export const benefits = defineType(
             ],
           }),
         ],
-      }),
-      F.reference({
-        name: "navLink",
-        to: [{ type: "navigation" }],
-        title: "Navigation Link",
       }),
     ],
 

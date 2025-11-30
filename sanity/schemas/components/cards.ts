@@ -9,6 +9,9 @@ export const cards = defineType(
 
     fields: [
       F.text({ name: "heading" }),
+      F.string({
+        name: "id",
+      }),
       F.array({
         name: "cards",
         of: [
@@ -25,11 +28,6 @@ export const cards = defineType(
             ],
           }),
         ],
-      }),
-      F.reference({
-        name: "navLink",
-        to: [{ type: "navigation" }],
-        title: "Navigation Link",
       }),
     ],
 

@@ -33,11 +33,6 @@ export const sliderVertical = defineType(
           ),
         ],
       }),
-      F.reference({
-        name: "navLink",
-        to: [{ type: "navigation" }],
-        title: "Navigation Link",
-      }),
     ],
 
     preview: {

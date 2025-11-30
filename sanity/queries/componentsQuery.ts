@@ -10,14 +10,14 @@ const cardQuery = `{
 
 const cardsQuery = `
     _type == "cards" => {
-      "_id": navLink->_id,
+      id,
       heading,
       cards[] ${cardQuery}
     }
 `;
 const mediaWithTextQuery = `
     _type == "mediaWithText" =>{
-      "_id": navLink->_id,
+      id,
       heading, 
       content,
       "image": image.asset->url,
@@ -27,6 +27,7 @@ const mediaWithTextQuery = `
 const galleryQuery = `
   _type == "gallery" =>{
     heading,
+    id,
     images[]{
       _key,
       "url": asset->url
@@ -35,14 +36,14 @@ const galleryQuery = `
 `;
 const sliderQuery = `
     _type == "slider" =>{
-      "_id": navLink->_id,
+      id,
       heading,
       slides[]${cardQuery}
     }
 `;
 const sliderVerticalQuery = `
     _type == "sliderVertical" =>{
-      "_id": navLink->_id,
+      id,
       heading,
       slides[]${cardQuery}
     }
@@ -51,6 +52,7 @@ const sliderVerticalQuery = `
 const benefitsQuery = `
     _type == "benefits" =>{
     heading,
+    id,
     benefits[]{
     name, 
     "image": image.asset->url,
@@ -69,7 +71,7 @@ const marqueeQuery = `
 
 const mediaGridWithTextQuery = `
     _type == "mediaGridWithText" =>{
-      "_id": navLink->_id,
+      id,
       heading,
       "videoTop": videoTop.asset->url,
       "videoBottom": videoBottom.asset->url,
@@ -79,6 +81,7 @@ const mediaGridWithTextQuery = `
 `;
 const contactQuery = `
     _type == "contact" =>{
+      id,
       heading,
       content,
       addresses

@@ -23,11 +23,6 @@ export const mediaGridWithText = defineType(
         name: "videoBottom",
         accept: "video/*",
       }),
-      F.reference({
-        name: "navLink",
-        to: [{ type: "navigation" }],
-        title: "Navigation Link",
-      }),
     ],
 
     preview: {
