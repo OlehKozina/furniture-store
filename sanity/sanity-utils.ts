@@ -44,7 +44,7 @@ export function getHeader() {
 export function getFooter() {
   return fetchNoCache(
     groq`*[_type == "footer"][0]{
-    navigation[]{ title, links },
+    navigation[]{ title, links[]{title, "slug": slug.current} },
     phone,
     email,
     socialLinks,

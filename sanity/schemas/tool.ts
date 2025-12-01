@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import generateSlug from "./utils";
 
 export const F = {
   string: (opts: { name: string; title?: string; validation?: any }) =>
@@ -41,8 +42,9 @@ export const F = {
   slug: (opts: {
     name: string;
     title?: string;
-    source?: string;
+    source?: string | ((doc: any, context: { parent: any }) => string);
     maxLength?: number;
+    options?: Record<string, unknown>;
   }) =>
     defineField({
       type: "slug",
@@ -50,6 +52,10 @@ export const F = {
       options: {
         source: opts.source,
         maxLength: opts.maxLength || 96,
+        slugify: (input: string) =>
+          generateSlug(input).slice(0, opts.maxLength || 96),
+
+        ...(opts.options || {}),
       },
     }),
   reference: (opts: { name: string; title?: string; to: { type: string }[] }) =>

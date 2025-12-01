@@ -18,7 +18,7 @@ const FooterContainer = ({
     phone,
     socialLinks: _socialLinks,
   } = footerContainer;
-
+  console.log("navigation", navigation);
   const contactLinks = buildContactLinks(phone, email, address);
   const socialLinks = buildSocialLinks(_socialLinks);
   return (
@@ -38,10 +38,14 @@ const FooterContainer = ({
       <div className="flex z-9 mt-4 flex-grow justify-evenly flex-col md:flex-row text-center md:mt-0">
         {!!navigation?.length &&
           navigation.map((column) => (
-            <Navigation title={column.title} links={column.links} />
+            <Navigation
+              title={column.title}
+              links={column.links}
+              classNames={{ root: "flex flex-col gap-5 items-start" }}
+            />
           ))}
 
-        <ul className="flex flex-col justify-center text-center mt-4 md:mt-0">
+        <ul className="flex flex-col mt-4 gap-5 md:mt-0">
           {contactLinks.map(
             (link) =>
               link?.label && (

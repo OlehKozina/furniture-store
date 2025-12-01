@@ -34,15 +34,9 @@ const Navigation = ({ links, title, classNames, onClose }: NavigationProps) => {
       initial="hidden"
       animate="show"
     >
-      <h4>{title}</h4>
+      <h4 className="opacity-50 text-xs mb-2">{title}</h4>
       {links?.map((link, index) => {
         const linkRef = React.useRef<HTMLAnchorElement | null>(null);
-        const [linkWidth, setLinkWidth] = React.useState<number | null>(null);
-        React.useEffect(() => {
-          if (linkRef.current) {
-            setLinkWidth(linkRef.current.offsetWidth);
-          }
-        }, []);
 
         return (
           <motion.li
@@ -53,7 +47,9 @@ const Navigation = ({ links, title, classNames, onClose }: NavigationProps) => {
               hidden: { opacity: 0, y: 10 },
               show: { opacity: 1, y: 0 },
             }}
-            className={clsx("relative flex flex-col items-center")}
+            className={clsx(
+              "relative flex flex-col hover:text-brand-default transition-colors"
+            )}
           >
             <a
               ref={linkRef}

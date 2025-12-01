@@ -10,6 +10,7 @@ export const link = F.object({
     F.slug({
       name: "slug",
       title: "Slug",
+      source: "title",
     }),
   ],
 });
