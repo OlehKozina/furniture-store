@@ -18,7 +18,7 @@ export interface ContactProps {
 function Contact({ heading, content, addresses, id }: ContactProps) {
   return (
     <section
-      className="py-5 md:py-12 relative overflow-hidden max-md:scroll-mt-16 bg-black"
+      className="py-5 md:py-12 relative overflow-hidden max-md:scroll-mt-16 bg-brand-tangerine"
       id={id}
     >
       <div className="container text-white text-center">

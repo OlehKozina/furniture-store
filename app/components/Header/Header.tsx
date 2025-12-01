@@ -48,14 +48,12 @@ const Header = ({ header }: { header: NavigationType }) => {
   return (
     <header
       className={clsx(
-        "px-2 top-0 left-0 w-full z-10 sticky transition-all bg-white",
+        "px-2 shadow-lg top-0 left-0 w-full z-10 sticky transition-all bg-white",
         hidden && "-translate-y-full"
       )}
     >
-      <div className={clsx("container transition-all rounded-3xl p-4")}>
-        <div className="flex items-center gap-10 relative">
-          <HeaderNav navigation={navigation} activeSection={activeSection} />
-        </div>
+      <div className={clsx("container transition-all")}>
+        <HeaderNav navigation={navigation} activeSection={activeSection} />
       </div>
     </header>
   );

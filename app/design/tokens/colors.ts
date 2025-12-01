@@ -4,5 +4,6 @@ export const colors = {
   "brand-teal": "#E4EfE9",
   "brand-default": "#bec6c3",
   "brand-tangerine": "#e9bc8b",
+  "brand-card": "#F4F7FA",
   white: "#ffffff",
 };

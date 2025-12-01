@@ -62,7 +62,7 @@ const Hero = ({ hero }: { hero: HeroType }) => {
           cards.map((card) => (
             <div
               key={card.name}
-              className="max-w-[21rem] w-full bg-brand-tangerine rounded-lg p-4 flex flex-col justify-between"
+              className="max-w-[21rem] w-full bg-brand-card rounded-lg p-4 flex flex-col justify-between"
             >
               {card.name}
               {card.image && (

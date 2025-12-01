@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
-import { LineSvg } from "../Icons";
 
 interface NavigationProps {
   links?: {
@@ -13,40 +12,16 @@ interface NavigationProps {
     root?: string;
     link?: string;
   };
-  bgColor?: boolean;
   onClose?: () => void;
-  isHeader?: boolean;
-  activeSection?: string | null;
 }
 
-const Navigation = ({
-  links,
-  title,
-  classNames,
-  onClose,
-  isHeader = false,
-  activeSection,
-  bgColor,
-}: NavigationProps) => {
+const Navigation = ({ links, title, classNames, onClose }: NavigationProps) => {
   if (!links?.length) return null;
   const [hoveredIndex, setHoveredIndex] = useState<null | number>(null);
-
-  function generateId(linkTitle?: string) {
-    if (title)
-      return title
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/(^-|-$)/g, "");
-  }
 
   return (
     <motion.ul
       className={classNames?.root}
-      style={
-        bgColor
-          ? { background: "linear-gradient(to right, #A1C4FD, #C2E9FB)" }
-          : {}
-      }
       variants={{
         hidden: {},
         show: {
@@ -63,7 +38,6 @@ const Navigation = ({
       {links?.map((link, index) => {
         const linkRef = React.useRef<HTMLAnchorElement | null>(null);
         const [linkWidth, setLinkWidth] = React.useState<number | null>(null);
-        const isActive = activeSection === generateId(link?.title || "");
         React.useEffect(() => {
           if (linkRef.current) {
             setLinkWidth(linkRef.current.offsetWidth);
@@ -83,23 +57,12 @@ const Navigation = ({
           >
             <a
               ref={linkRef}
-              className={clsx(
-                "no-underline",
-                !isHeader && "hover:text-brand-default transition-all",
-                classNames?.link
-              )}
-              href={`#${generateId(link?.slug)}`}
+              className={clsx("no-underline", classNames?.link)}
+              href={`#${link?.slug}`}
               onClick={onClose}
             >
               {link.title}
             </a>
-            {linkWidth && isHeader && (
-              <LineSvg
-                className="absolute top-full"
-                width={linkWidth}
-                isHovered={hoveredIndex === index || isActive}
-              />
-            )}
           </motion.li>
         );
       })}
