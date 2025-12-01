@@ -74,7 +74,7 @@ const HeaderNav = ({
                 <AnimatePresence>
                   {hoveredIndex === index && (
                     <motion.div
-                      key={link.title} // ensures proper re-mount for animation
+                      key={link.title}
                       initial={{ opacity: 0, y: -5 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -5 }}

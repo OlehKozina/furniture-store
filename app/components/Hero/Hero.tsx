@@ -7,7 +7,7 @@ import { getHeadingParts, containerVariants, charVariants } from "./utils";
 
 const Hero = ({ hero }: { hero: HeroType }) => {
   if (!hero) return null;
-  const { heading, image, label, cards } = hero;
+  const { heading, image, label } = hero;
   const { firstWord, fullText } = getHeadingParts(heading);
   const { scrollY } = useScroll();
   const yBg = useTransform(scrollY, [0, 500], [0, 150]);
@@ -32,9 +32,9 @@ const Hero = ({ hero }: { hero: HeroType }) => {
           />
         )}
       </motion.div>
-      <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-black/0" />
-      <div className="container flex flex-col gap-5">
-        {label && <h3 className="text-center text-xl">{label}</h3>}
+      <div className="absolute inset-0 bg-black opacity-60" />
+      <div className="container flex flex-col gap-5 relative items-center justify-center min-h-screen z-above-content">
+        {label && <h3 className="text-center text-3xl text-white">{label}</h3>}
         {heading && (
           <motion.h1
             initial="initial"
@@ -43,39 +43,14 @@ const Hero = ({ hero }: { hero: HeroType }) => {
             className="relative font-extrabold text-center text-7xl mb-24 leading-tight text-white md:top-0 md:mb-12 lg:line-height-[1.5] lg:mb-0"
           >
             {fullText.map((char, index) => {
-              const isFirstWordChar = index < firstWord.length;
               return (
-                <motion.span
-                  key={index}
-                  variants={charVariants}
-                  className={isFirstWordChar ? "text-brand-default" : ""}
-                >
+                <motion.span key={index} variants={charVariants}>
                   {char}
                 </motion.span>
               );
             })}
           </motion.h1>
         )}
-      </div>
-      <div className="flex relative gap-4 flex-wrap container mx-auto justify-center">
-        {!!cards?.length &&
-          cards.map((card) => (
-            <div
-              key={card.name}
-              className="max-w-[21rem] w-full bg-brand-card rounded-lg p-4 flex flex-col justify-between"
-            >
-              {card.name}
-              {card.image && (
-                <Image
-                  width={150}
-                  className="mx-auto"
-                  height={200}
-                  src={card.image}
-                  alt="furniture-item"
-                />
-              )}
-            </div>
-          ))}
       </div>
     </section>
   );

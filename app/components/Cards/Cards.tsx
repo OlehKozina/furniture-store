@@ -37,3 +37,21 @@ export default function Cards({
     </section>
   );
 }
+//     <div className="flex relative gap-4 flex-wrap container mx-auto justify-center">{!!cards?.length &&
+// cards.map((card) => (
+//   <div
+//     key={card.name}
+//     className="max-w-[21rem] w-full bg-brand-card rounded-lg p-4 flex flex-col justify-between"
+//   >
+//     {card.name}
+//     {card.image && (
+//       <Image
+//         width={150}
+//         className="mx-auto"
+//         height={200}
+//         src={card.image}
+//         alt="furniture-item"
+//       />
+//     )}
+//   </div>
+// ))}</div>
