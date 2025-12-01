@@ -4,7 +4,8 @@ const cardQuery = `{
     "image": image.asset->url,
     content,
     price,
-    oldPrice
+    oldPrice,
+    rating
   }
 `;
 

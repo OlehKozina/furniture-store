@@ -21,7 +21,7 @@ function Contact({ heading, content, addresses, id }: ContactProps) {
       className="py-5 md:py-12 relative overflow-hidden max-md:scroll-mt-16 bg-brand-tangerine"
       id={id}
     >
-      <div className="container text-white text-center">
+      <div className="container text-brand-charcoal text-center">
         <Heading
           className="font-extrabold leading-tight text-3xl sm:text-4xl mb-6 text-center"
           heading={heading}
@@ -44,7 +44,7 @@ function Contact({ heading, content, addresses, id }: ContactProps) {
                     {item.phone && (
                       <a
                         href={`tel:${item.phone}`}
-                        className="inline-block px-4 py-2 border border-white rounded-xl text-white font-medium hover:bg-white hover:text-black transition-colors duration-300"
+                        className="inline-block px-4 py-2 border border-white rounded-xl text-brand-charcoal font-medium hover:bg-white hover:text-black transition-colors duration-300"
                       >
                         {item.phone}
                       </a>

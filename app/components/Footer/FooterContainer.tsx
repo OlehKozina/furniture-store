@@ -18,7 +18,7 @@ const FooterContainer = ({
     phone,
     socialLinks: _socialLinks,
   } = footerContainer;
-  console.log("navigation", navigation);
+
   const contactLinks = buildContactLinks(phone, email, address);
   const socialLinks = buildSocialLinks(_socialLinks);
   return (

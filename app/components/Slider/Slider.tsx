@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import Heading from "../Heading";
+import Fade from "embla-carousel-fade";
 import { ArrowButton } from ".";
 import clsx from "clsx";
 import { PortableTextBlock } from "next-sanity";
@@ -14,6 +14,7 @@ interface SliderProps {
     content: PortableTextBlock[];
     name: string;
     _key?: string;
+    rating?: number;
   }[];
   heading?: string;
 }
@@ -22,12 +23,10 @@ export default function Slider({ heading, slides, id }: SliderProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
 
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    slidesToScroll: 1,
-    skipSnaps: false,
-    align: "start",
-    loop: true,
-  });
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, skipSnaps: false, align: "start" },
+    [Fade()] // ← enable fade plugin
+  );
   const scrollPrev = () => emblaApi?.scrollPrev();
   const scrollNext = () => emblaApi?.scrollNext();
   const [isDragging, setIsDragging] = useState(false);
@@ -56,12 +55,8 @@ export default function Slider({ heading, slides, id }: SliderProps) {
       className="py-5 md:py-12 relative overflow-hidden max-md:scroll-mt-16 bg-brand-charcoal"
       id={id}
     >
-      <div className="container mx-auto px-4 bg-opacity-80 rounded-3xl py-10">
-        <Heading
-          heading={heading}
-          className="mb-6 text-center md:mb-10 text-white"
-        />
-        <div className="relative max-w-[21rem] sm:max-w-[42rem] md:max-w-[80rem] mx-auto">
+      <div className="container mx-auto px-4 bg-opacity-80 rounded-3xl">
+        <div className="relative max-w-[21rem] sm:max-w-[42rem] md:max-w-[60rem] mx-auto">
           <div
             className={clsx(
               "overflow-hidden",
@@ -71,10 +66,13 @@ export default function Slider({ heading, slides, id }: SliderProps) {
           >
             <div className="flex">
               {slides.map((slide) => {
-                const { content, image, name } = slide;
+                const { content, image, name, rating } = slide;
                 return (
-                  <div key={name} className="flex-[0_0_100%] px-2">
-                    <Slide {...{ content, image, name }} />
+                  <div
+                    key={name}
+                    className="flex-[0_0_100%] px-2 transition-opacity duration-medium ease-in-out"
+                  >
+                    <Slide {...{ content, image, name, rating }} />
                   </div>
                 );
               })}
@@ -88,7 +86,7 @@ export default function Slider({ heading, slides, id }: SliderProps) {
                 key={index}
                 className={`w-3 h-3 hover:scale-125 transition-all rounded-full ${
                   index === selectedIndex
-                    ? "bg-brand-default"
+                    ? "bg-brand-charcoal"
                     : "bg-brand-tangerine"
                 }`}
                 onClick={() => emblaApi?.scrollTo(index)}
