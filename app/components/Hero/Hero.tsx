@@ -11,7 +11,7 @@ const Hero = ({ hero }: { hero: HeroType }) => {
   const { firstWord, fullText } = getHeadingParts(heading);
   const { scrollY } = useScroll();
   const yBg = useTransform(scrollY, [0, 500], [0, 150]);
-  console.log("cards", cards);
+
   return (
     <section
       className="relative flex flex-col items-center overflow-hidden min-h-screen"

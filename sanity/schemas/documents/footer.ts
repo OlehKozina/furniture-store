@@ -1,4 +1,3 @@
-import { defineField } from "sanity";
 import { FilterIcon as icon } from "@sanity/icons";
 import { F } from "../tool";
 

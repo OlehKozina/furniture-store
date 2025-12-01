@@ -4,10 +4,11 @@ import { motion } from "framer-motion";
 import { LineSvg } from "../Icons";
 
 interface NavigationProps {
-  navigation?: {
+  links?: {
     title?: string;
     slug?: string;
   }[];
+  title?: string;
   classNames?: {
     root?: string;
     link?: string;
@@ -19,17 +20,18 @@ interface NavigationProps {
 }
 
 const Navigation = ({
-  navigation,
+  links,
+  title,
   classNames,
   onClose,
   isHeader = false,
   activeSection,
   bgColor,
 }: NavigationProps) => {
-  if (!navigation?.length) return null;
+  if (!links?.length) return null;
   const [hoveredIndex, setHoveredIndex] = useState<null | number>(null);
 
-  function generateId(title?: string) {
+  function generateId(linkTitle?: string) {
     if (title)
       return title
         .toLowerCase()
@@ -57,7 +59,8 @@ const Navigation = ({
       initial="hidden"
       animate="show"
     >
-      {navigation?.map((link, index) => {
+      <h4>{title}</h4>
+      {links?.map((link, index) => {
         const linkRef = React.useRef<HTMLAnchorElement | null>(null);
         const [linkWidth, setLinkWidth] = React.useState<number | null>(null);
         const isActive = activeSection === generateId(link?.title || "");

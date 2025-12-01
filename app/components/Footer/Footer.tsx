@@ -5,10 +5,9 @@ import { NavigationType } from "@/types";
 
 function Footer({ footer }: { footer?: NavigationType }) {
   if (!footer) return null;
-  const { footerImages, ...footerContainer } = footer;
   return (
     <footer className="relative text-center py-20 bg-cover bg-opacity-20 bg-center bg-no-repeat md:text-left transition-all">
-      <FooterContainer footerContainer={footerContainer} />
+      <FooterContainer footerContainer={footer} />
     </footer>
   );
 }

@@ -44,16 +44,10 @@ export function getHeader() {
 export function getFooter() {
   return fetchNoCache(
     groq`*[_type == "footer"][0]{
-    navigation[]{ title, sectionId },
+    navigation[]{ title, links },
     phone,
     email,
-    address,
     socialLinks,
-    footerImages{
-    "left": leftImage.asset->url,
-    "right": rightImage.asset->url
-    },
-      "privacyPolicy": *[_type == "privacyPolicy"][0].content,
   }`
   );
 }
