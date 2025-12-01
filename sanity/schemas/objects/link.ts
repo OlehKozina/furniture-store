@@ -12,5 +12,10 @@ export const link = F.object({
       title: "Slug",
       source: "title",
     }),
+    F.array({
+      name: "sublinks",
+      title: "Sublinks (optional)",
+      of: [{ type: "reference", to: [{ type: "categories" }] }],
+    }),
   ],
 });

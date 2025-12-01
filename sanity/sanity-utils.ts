@@ -37,7 +37,7 @@ export function getPageHome() {
 
 export function getHeader() {
   return fetchNoCache(`*[_type == "header"][0]{
-    navigation[]{ title, "slug": slug.current },
+    navigation[]{ title, "slug": slug.current, sublinks[]->{name} },
   }`);
 }
 

@@ -7,6 +7,9 @@ export type NavigationType = {
     links?: {
       title?: string;
       slug?: string;
+      sublinks?: {
+        name?: string;
+      }[];
     }[];
   }[];
   privacyPolicy?: PortableTextBlock;
