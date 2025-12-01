@@ -34,7 +34,7 @@ const MobileMenu: React.FC<MenuProps> = ({
               onClick={onClose}
             />
           </button>
-          <Navigation
+          {/* <Navigation
             navigation={navigation}
             onClose={onClose}
             bgColor
@@ -42,7 +42,7 @@ const MobileMenu: React.FC<MenuProps> = ({
               root: "flex rounded-b-3xl text-center transition-all hover:!bg-brand-teal/80 mx-auto bg-brand-teal/50 flex-col gap-5 mt-2 mr-2 p-6 max-w-[38rem]",
               link: "no-underline !text-brand-tangerine transition-colors hover:!text-brand-default",
             }}
-          />
+          /> */}
         </div>
       )}
     </AnimatePresence>
