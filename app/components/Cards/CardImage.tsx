@@ -21,13 +21,13 @@ const CardImage = ({ image, name }: { image?: string; name?: string }) => {
       initial="hidden"
       animate={controls}
       variants={imageVariants}
+      className="relative w-full h-full p-6"
     >
       <Image
         src={image}
         alt={name || "Furniture"}
-        width={150}
-        height={200}
-        className="mx-auto"
+        fill
+        className="object-contain"
       />
     </motion.div>
   );
