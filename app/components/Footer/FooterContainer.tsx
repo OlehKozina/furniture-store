@@ -21,6 +21,7 @@ const FooterContainer = ({
 
   const contactLinks = buildContactLinks(phone, email, address);
   const socialLinks = buildSocialLinks(_socialLinks);
+
   return (
     <div className="container z-content relative flex text-center flex-grow flex-col md:flex-row">
       <a
@@ -39,6 +40,7 @@ const FooterContainer = ({
         {!!navigation?.length &&
           navigation.map((column) => (
             <Navigation
+              key={column.title}
               title={column.title}
               links={column.links}
               classNames={{ root: "flex flex-col gap-5 items-start" }}

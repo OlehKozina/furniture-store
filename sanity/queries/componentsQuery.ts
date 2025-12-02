@@ -1,11 +1,13 @@
 const cardQuery = `{
     _key,
+    _id,
     name,
     "image": image.asset->url,
     content,
     price,
     oldPrice,
-    rating
+    rating,
+    "category": categories->name,
   }
 `;
 

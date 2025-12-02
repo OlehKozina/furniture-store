@@ -19,7 +19,7 @@ const Benefits = ({
 }) => {
   return (
     <section className="px-2  relative !py-20 bg-brand-teal" id={id}>
-      <div className="sm:container">
+      <div className="sm:container flex flex-col gap-4">
         <Heading
           className="font-extrabold leading-tight text-3xl sm:text-4xl mb-6 text-center md:mb-10"
           heading={heading}

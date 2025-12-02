@@ -2,9 +2,11 @@ import { PortableTextBlock } from "next-sanity";
 
 export type CardsType = {
   _key?: string;
+  _id?: string;
   name?: string;
   image?: string;
   content?: PortableTextBlock[];
   price?: number;
   rating?: number;
+  category?: string;
 }[];
