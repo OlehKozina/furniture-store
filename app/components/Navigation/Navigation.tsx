@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 
@@ -17,7 +17,6 @@ interface NavigationProps {
 
 const Navigation = ({ links, title, classNames, onClose }: NavigationProps) => {
   if (!links?.length) return null;
-  const [hoveredIndex, setHoveredIndex] = useState<null | number>(null);
 
   return (
     <motion.ul
@@ -35,14 +34,12 @@ const Navigation = ({ links, title, classNames, onClose }: NavigationProps) => {
       animate="show"
     >
       <h4 className="opacity-50 text-xs mb-2">{title}</h4>
-      {links?.map((link, index) => {
+      {links?.map((link) => {
         const linkRef = React.useRef<HTMLAnchorElement | null>(null);
 
         return (
           <motion.li
             key={link.title}
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
             variants={{
               hidden: { opacity: 0, y: 10 },
               show: { opacity: 1, y: 0 },

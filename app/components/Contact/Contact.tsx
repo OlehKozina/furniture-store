@@ -3,6 +3,7 @@ import React from "react";
 import Heading from "../Heading";
 import { PortableText, PortableTextBlock } from "next-sanity";
 import Image from "next/image";
+import Address from "./Address";
 
 export interface ContactProps {
   heading?: string;
@@ -36,22 +37,7 @@ function Contact({ heading, content, addresses, id }: ContactProps) {
           />
           <div className="flex flex-wrap justify-center gap-20">
             {!!addresses?.length &&
-              addresses?.map((item) => (
-                <div className="flex gap-2 max-w-[14rem]" key={item.city}>
-                  <div className="flex flex-col gap-2">
-                    {item.city && <h4>{item.city}</h4>}
-                    {item.address && <p>{item.address}</p>}
-                    {item.phone && (
-                      <a
-                        href={`tel:${item.phone}`}
-                        className="inline-block px-4 py-2 border border-white rounded-xl text-brand-charcoal font-medium hover:bg-white hover:text-black transition-colors duration-300"
-                      >
-                        {item.phone}
-                      </a>
-                    )}
-                  </div>
-                </div>
-              ))}
+              addresses?.map((item) => <Address {...item} key={item.city} />)}
           </div>
         </div>
       </div>
