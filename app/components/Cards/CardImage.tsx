@@ -24,10 +24,10 @@ const CardImage = ({ image, name }: { image?: string; name?: string }) => {
     >
       <Image
         src={image}
-        alt={name || "Baker"}
-        width={240}
-        height={388}
-        className="list-none w-[9rem] md:w-[15rem] bg-brand-teal"
+        alt={name || "Furniture"}
+        width={150}
+        height={200}
+        className="mx-auto"
       />
     </motion.div>
   );

@@ -45,7 +45,6 @@ const HeaderNav = ({
         className="hidden md:flex text-brand-charcoal list-none flex-grow justify-center text-lg lg:text-xl font-extrabold px-20"
       >
         {navigation?.map((link, index) => {
-          console.log("sub", link.sublinks);
           const linkRef = React.useRef<HTMLAnchorElement | null>(null);
           const isActive = activeSection === generateId(link?.title || "");
           const hasSublinks = link.sublinks && link.sublinks.length > 0;

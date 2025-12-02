@@ -16,16 +16,15 @@ interface SliderProps {
     _key?: string;
     rating?: number;
   }[];
-  heading?: string;
 }
 
-export default function Slider({ heading, slides, id }: SliderProps) {
+export default function Slider({ slides, id }: SliderProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, skipSnaps: false, align: "start" },
-    [Fade()] // ← enable fade plugin
+    [Fade()]
   );
   const scrollPrev = () => emblaApi?.scrollPrev();
   const scrollNext = () => emblaApi?.scrollNext();

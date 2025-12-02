@@ -12,7 +12,7 @@ const BakerContent = ({
 }) => {
   return (
     <div className={className}>
-      <h3 className="font-extrabold"> {name || ""}</h3>
+      <h3 className="font-bold text-xl"> {name || ""}</h3>
       {content && (
         <div className="max-w-[12rem] mt-6 mb-6 text-sm font-thin last:mb-0 md:text-xl md:max-w-[21rem]">
           <PortableText value={content || []} />

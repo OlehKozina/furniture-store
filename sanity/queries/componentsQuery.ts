@@ -13,7 +13,8 @@ const cardsQuery = `
     _type == "cards" => {
       id,
       heading,
-      cards[] ${cardQuery}
+      "categories":*[_type == "categories"]{name, _id, "image":image.asset->url},
+      "cards":*[_type == "products"]${cardQuery},
     }
 `;
 const mediaWithTextQuery = `
