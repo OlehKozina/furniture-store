@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { PortableTextBlock } from "@portabletext/react";
 import CardContent from "./CardContent";
 import CardImage from "./CardImage";
@@ -28,6 +28,7 @@ const Card = ({
   _id,
 }: CardProps) => {
   const controls = useAnimation();
+  const [showAddedMessage, setShowAddedMessage] = useState(false);
   const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
   const addItem = useCartStore((state) => state.addItem);
   React.useEffect(() => {
@@ -50,6 +51,8 @@ const Card = ({
       image,
       price,
     });
+    setShowAddedMessage(true);
+    setTimeout(() => setShowAddedMessage(false), 1000);
   };
   return (
     <div className="relative group mb-4 text-2xl font-bold max-w-[15rem] w-full">
@@ -72,7 +75,7 @@ const Card = ({
           pointer-events-none group-hover:pointer-events-auto text-base
         "
           >
-            + Add to cart
+            {showAddedMessage ? "✓ Added!" : "+ Add to cart"}
           </button>
         </motion.div>
 
@@ -89,11 +92,11 @@ const Card = ({
         {(name || content) && <CardContent {...{ name, content }} />}
         {rating && (
           <div className="flex gap-1 text-xl">
-            {Array.from({ length: rating }).map((_, idx) => (
-              <FaStar key={`filled-${idx}`} className="text-brand-gold" />
+            {Array.from({ length: rating }).map((_, index) => (
+              <FaStar key={`filled-${index}`} className="text-brand-gold" />
             ))}
-            {Array.from({ length: 5 - rating }).map((_, idx) => (
-              <FaStar key={`empty-${idx}`} className="text-brand-card" />
+            {Array.from({ length: 5 - rating }).map((_, index) => (
+              <FaStar key={`empty-${index}`} className="text-brand-card" />
             ))}
           </div>
         )}

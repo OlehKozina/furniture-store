@@ -1,10 +1,19 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { ShoppingCart } from "lucide-react";
 import { useCartStore } from "@/stores/cartStore";
 
 const CartButton = () => {
   const { toggleCart, getTotalItems } = useCartStore();
+  const [totalItems, setTotalItems] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+    setTotalItems(getTotalItems());
+  }, [getTotalItems]);
+
+  const showBadge = isMounted && totalItems > 0;
 
   return (
     <button
@@ -13,9 +22,9 @@ const CartButton = () => {
       aria-label="Cart"
     >
       <ShoppingCart className="w-7 h-7 text-green" />
-      {getTotalItems() > 0 && (
+      {showBadge && (
         <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-          {getTotalItems()}
+          {totalItems}
         </span>
       )}
     </button>
