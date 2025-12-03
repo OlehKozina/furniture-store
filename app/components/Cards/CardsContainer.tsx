@@ -46,7 +46,7 @@ const CardsContainer: React.FC<CardsContainerProps> = ({
       {heading && (
         <Heading
           heading={heading}
-          className="block mx-auto text-center mb-6 relative md:mb-12 whitespace-nowrap"
+          className="block mx-auto text-center mb-6 relative md:mb-12 xs:whitespace-nowrap"
         />
       )}
 

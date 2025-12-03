@@ -15,11 +15,11 @@ const Header = ({ header }: { header: NavigationType }) => {
   return (
     <header
       className={clsx(
-        "px-2 shadow-lg top-0 left-0 w-full z-10 sticky transition-all bg-white",
+        "shadow-lg top-0 left-0 w-full z-10 sticky transition-all bg-white",
         hidden && "-translate-y-full"
       )}
     >
-      <div className={clsx("container transition-all")}>
+      <div className={clsx("container transition-all max-xxs:p-2")}>
         <HeaderNav navigation={navigation} activeSection={activeSection} />
       </div>
     </header>

@@ -34,13 +34,17 @@ const Hero = ({ hero }: { hero: HeroType }) => {
       </motion.div>
       <div className="absolute inset-0 bg-black opacity-60" />
       <div className="container flex flex-col gap-5 relative items-center justify-center min-h-screen z-above-content">
-        {label && <h3 className="text-center text-3xl text-white">{label}</h3>}
+        {label && (
+          <h3 className="text-center text-2xl md:text-3xl text-white">
+            {label}
+          </h3>
+        )}
         {heading && (
           <motion.h1
             initial="initial"
             animate="animate"
             variants={containerVariants}
-            className="relative font-extrabold text-center text-7xl mb-24 leading-tight text-white md:top-0 md:mb-12 lg:line-height-[1.5] lg:mb-0"
+            className="relative max-w-[32rem] md:max-w-[48rem] font-bold text-center text-4xl md:text-7xl mb-24 leading-tight text-white md:top-0 md:mb-12 lg:line-height-[1.5] lg:mb-0"
           >
             {fullText.map((char, index) => {
               return (

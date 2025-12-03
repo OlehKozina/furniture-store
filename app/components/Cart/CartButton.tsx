@@ -18,12 +18,12 @@ const CartButton = () => {
   return (
     <button
       onClick={toggleCart}
-      className="p-4 rounded-2xl hover:bg-brand-green/10 transition-colors relative"
+      className="p-2 xs:p-4 rounded-2xl hover:bg-brand-green/10 transition-colors relative"
       aria-label="Cart"
     >
       <ShoppingCart className="w-7 h-7 text-green" />
       {showBadge && (
-        <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+        <span className="absolute -top-1 -right-1 bg-red-500 text-black text-xs rounded-full w-5 h-5 flex items-center justify-center">
           {totalItems}
         </span>
       )}

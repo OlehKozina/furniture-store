@@ -45,7 +45,7 @@ const NavigationLink: React.FC<NavigationLinkProps> = ({
       )}
     >
       <a
-        className={clsx("no-underline p-[1.75rem] transition-all")}
+        className={clsx("no-underline p-4 md:p-[1.75rem] transition-all")}
         href={`#${generateId(link?.slug)}`}
       >
         {link.title}

@@ -26,19 +26,21 @@ const FooterContainer = ({
   return (
     <div className="container z-content relative flex text-center flex-grow flex-col md:flex-row">
       <Logo
-        className="mt-4 flex justify-center md:inline-block md:justify-start md:mt-0 z-[5]"
+        className="flex justify-center md:inline-block md:justify-start z-[5] pt-0"
         width={100}
         height={100}
       />
 
-      <div className="flex z-9 mt-4 flex-grow justify-evenly flex-col md:flex-row text-center md:mt-0">
+      <div className="flex z-9 mt-4 flex-grow justify-between lg:justify-evenly max-md:gap-6 flex-col md:flex-row text-center md:mt-0">
         {!!navigation?.length &&
           navigation.map((column) => (
             <Navigation
               key={column.title}
               title={column.title}
               links={column.links}
-              classNames={{ root: "flex flex-col gap-5 items-start" }}
+              classNames={{
+                root: "flex flex-col gap-5 items-center md:items-start",
+              }}
             />
           ))}
         <FooterLinks contactLinks={contactLinks} socialLinks={socialLinks} />
