@@ -16,11 +16,11 @@ const Slide = ({
   rating?: number;
 }) => {
   return (
-    <div className="max-md:max-w-[20rem] group text-white font-medium mt-8 mb-4">
+    <div className=" group text-white font-medium mt-8 mb-4">
       <div className="relative w-full rounded-3xl overflow-hidden px-10 flex gap-6">
-        <div className="p-6 flex-1 basis-2/3">
+        <div className="p-6 flex-1 basis-2/3 z-10 max-xs:bg-black/70 max-sm:rounded-3xl">
           <div className="flex flex-col gap-6 p-4 rounded-2xl">
-            <div className="text-green text-6xl">❝</div>
+            <div className="text-green text-6xl max-xs:hidden">❝</div>
             {rating && (
               <div className="flex gap-1 text-brand-gold text-xl">
                 {Array.from({ length: rating }).map((_, idx) => (
@@ -35,13 +35,12 @@ const Slide = ({
           </div>
         </div>
         {image && (
-          <div className="flex-1 basis-1/3 relative object-cover">
+          <div className="flex-1 basis-1/3 max-xs:hidden relative">
             <Image
               src={image}
               alt={name || ""}
-              width={350}
-              height={460}
-              className="w-full rounded-2xl"
+              fill
+              className="w-full h-full object-cover rounded-2xl"
             />
           </div>
         )}

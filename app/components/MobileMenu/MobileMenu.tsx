@@ -42,7 +42,7 @@ const MobileMenu: React.FC<MenuProps> = ({
       {isVisible && (
         <div className={clsx("z-50 md:hidden pt-10 bg-white", className)}>
           <button
-            className="text-brand-teal z-10 border-none absolute top-6 right-7"
+            className="text-brand-teal z-10 border-none absolute top-6 right-4"
             type="button"
           >
             <FontAwesomeIcon

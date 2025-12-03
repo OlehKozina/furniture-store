@@ -19,7 +19,7 @@ const ContactAndSocialLinks: React.FC<FooterLinksProps> = ({
   socialLinks,
 }) => {
   return (
-    <ul className="flex flex-col mt-4 gap-5 md:mt-0">
+    <ul className="flex flex-col mt-4 gap-5 md:mt-0 mx-6">
       {!!contactLinks?.length &&
         contactLinks.map(
           (link) =>

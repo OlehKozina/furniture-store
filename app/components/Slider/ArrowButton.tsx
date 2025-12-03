@@ -17,7 +17,7 @@ const ArrowButton = ({
     <button
       onClick={onClick}
       className={clsx(
-        "absolute bg-none top-1/2 transform -translate-y-1/2 p-2 z-5 transition-all",
+        "absolute bg-none top-1/2 transform -translate-y-1/2 p-2 z-5 transition-all max-xxs:hidden",
         direction === "left"
           ? "-left-4 hover:-translate-x-4"
           : "-right-4 hover:translate-x-4"

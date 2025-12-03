@@ -12,7 +12,7 @@ const SliderDots = ({
   onDotClick,
 }: SliderDotsProps) => {
   return (
-    <div className="flex mx-auto w-fit justify-center gap-2 mt-3 p-4 rounded-full bg-brand-teal">
+    <div className="flex mx-auto w-fit justify-center gap-2 mt-3 p-2 md:p-4 rounded-full bg-brand-teal">
       {scrollSnaps.map((_, index) => (
         <button
           key={index}

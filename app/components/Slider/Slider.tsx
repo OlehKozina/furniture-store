@@ -41,7 +41,7 @@ export default function Slider({ slides, id }: SliderProps) {
       id={id}
     >
       <div className="container mx-auto px-4 bg-opacity-80 rounded-3xl">
-        <div className="relative max-w-[21rem] sm:max-w-[42rem] md:max-w-[60rem] mx-auto">
+        <div className="relative max-w-[21rem] xs:max-w-[42rem] md:max-w-[60rem] mx-auto">
           <div
             className={clsx(
               "overflow-hidden",

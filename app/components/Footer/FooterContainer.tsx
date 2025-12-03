@@ -24,14 +24,14 @@ const FooterContainer = ({
   const socialLinks = buildSocialLinks(_socialLinks);
 
   return (
-    <div className="container z-content relative flex text-center flex-grow flex-col md:flex-row">
+    <div className="container z-content relative flex text-center flex-grow flex-col md:flex-row gap-4 1000:gap-10">
       <Logo
         className="flex justify-center md:inline-block md:justify-start z-[5] pt-0"
         width={100}
         height={100}
       />
 
-      <div className="flex z-9 mt-4 flex-grow justify-between lg:justify-evenly max-md:gap-6 flex-col md:flex-row text-center md:mt-0">
+      <div className="flex z-9 mt-4 flex-grow justify-between lg:justify-evenly max-md:gap-6 flex-col sm:max-md:flex-wrap sm:max-md:gap-20 sm:max-md:justify-center sm:flex-row text-center md:mt-0">
         {!!navigation?.length &&
           navigation.map((column) => (
             <Navigation
@@ -43,8 +43,8 @@ const FooterContainer = ({
               }}
             />
           ))}
-        <FooterLinks contactLinks={contactLinks} socialLinks={socialLinks} />
       </div>
+      <FooterLinks contactLinks={contactLinks} socialLinks={socialLinks} />
     </div>
   );
 };

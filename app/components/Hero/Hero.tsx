@@ -35,7 +35,7 @@ const Hero = ({ hero }: { hero: HeroType }) => {
       <div className="absolute inset-0 bg-black opacity-60" />
       <div className="container flex flex-col gap-5 relative items-center justify-center min-h-screen z-above-content">
         {label && (
-          <h3 className="text-center text-2xl md:text-3xl text-white">
+          <h3 className="text-center text-xl sm:text-2xl md:text-3xl text-white">
             {label}
           </h3>
         )}
@@ -44,7 +44,7 @@ const Hero = ({ hero }: { hero: HeroType }) => {
             initial="initial"
             animate="animate"
             variants={containerVariants}
-            className="relative max-w-[32rem] md:max-w-[48rem] font-bold text-center text-4xl md:text-7xl mb-24 leading-tight text-white md:top-0 md:mb-12 lg:line-height-[1.5] lg:mb-0"
+            className="relative max-w-[32rem] md:max-w-[48rem] font-bold text-center text-5xl md:text-7xl mb-24 leading-tight text-white md:top-0 md:mb-12 lg:line-height-[1.5] lg:mb-0"
           >
             {fullText.map((char, index) => {
               return (

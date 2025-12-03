@@ -32,8 +32,8 @@ const Cards: React.FC<CardsProps> = ({ heading, cards, id, categories }) => {
   };
 
   return (
-    <section className="py-5 md:py-12 relative -mt-[10rem]" id={id}>
-      <div className="container flex flex-col gap-32">
+    <section className="py-5 md:py-12 relative -mt-12 md:-mt-[10rem]" id={id}>
+      <div className="container flex flex-col gap-10 md:gap-32 p-0">
         {categories && categories.length > 0 && (
           <CategoryFilter categories={categories} />
         )}

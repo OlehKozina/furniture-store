@@ -52,7 +52,7 @@ const HeaderNav = ({
         setActiveCategory={setActiveCategory}
         activeCategory={activeCategory}
         generateId={generateId}
-        className="absolute -left-8 top-14"
+        className="absolute -left-4 top-14"
       />
       <Logo />
       <motion.ul
