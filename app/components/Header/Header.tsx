@@ -15,8 +15,8 @@ const Header = ({ header }: { header: NavigationType }) => {
   return (
     <header
       className={clsx(
-        "shadow-lg top-0 left-0 w-full z-10 sticky transition-all bg-white",
-        hidden && "-translate-y-full"
+        "shadow-lg top-0 left-0 w-full z-20 sticky transition-all bg-white",
+        hidden && "-translate-y-full",
       )}
     >
       <div className={clsx("container transition-all max-xxs:p-2")}>
